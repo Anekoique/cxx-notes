@@ -1,6 +1,7 @@
 #include<iostream>
 #include<list>
 #include<algorithm>
+#include<cstdio>
 using namespace std;
 
 // int main()
@@ -74,4 +75,43 @@ int main()
             cout << "->";
     }
     cout << endl;
+}
+
+// #include<iostream>
+// #include<cstdio>
+// #include<list>
+// #include<algorithm>
+// using namespace std;
+int main()
+{
+    int x;
+    list<int> L1;
+    list<int> L2;
+    list<int>::iterator it;
+    while(cin>>x)
+    {
+        if(x>0)
+            L1.push_back(x);
+        else
+            L2.push_back(x);
+    }
+    L1.sort();
+    L2.sort();
+    it = L1.begin();
+    for (size_t i = 0; i < L1.size(); i++)
+    {
+        cout << *it;
+        it++;
+        if (it != L1.end())
+            cout << "->";
+    }
+    cout << endl;
+    it = L2.begin();
+    for (size_t i = 0; i < L2.size(); i++)
+    {
+        cout << *it;
+        it++;
+        if (it != L2.end())
+            cout << "->";
+    }
 }

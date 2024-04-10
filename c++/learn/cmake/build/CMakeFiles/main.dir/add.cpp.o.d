@@ -1,4 +1,4 @@
-CMakeFiles/main.dir/main.cpp.o: /home/stoair/c/c++/learn/cmake/main.cpp \
+CMakeFiles/main.dir/add.cpp.o: /home/stoair/c/c++/learn/cmake/add.cpp \
  /usr/include/stdc-predef.h \
  /home/stoair/c/c++/learn/cmake/./include/add.h \
  /usr/include/c++/11/iostream \

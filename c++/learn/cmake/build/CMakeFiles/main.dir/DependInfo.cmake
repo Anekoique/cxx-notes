@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/stoair/c/c++/learn/cmake/add.cpp" "CMakeFiles/main.dir/add.cpp.o" "gcc" "CMakeFiles/main.dir/add.cpp.o.d"
   "/home/stoair/c/c++/learn/cmake/main.cpp" "CMakeFiles/main.dir/main.cpp.o" "gcc" "CMakeFiles/main.dir/main.cpp.o.d"
   )
 

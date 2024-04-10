@@ -194,82 +194,195 @@ using namespace std;
 //     return 0;
 // }
 
-#include<iostream>
+// #include<iostream>
+
+// using namespace std;
+// typedef struct node{
+//     int num;
+//     struct node* next;
+// }Node;
+
+// Node* listcreate(int M)
+// {
+//     int i = 1;
+//     Node* head;
+//     head = new Node;
+//     head->num  = i;
+//     head->next = NULL;
+//     Node* current = head;
+//     for (i = 2; i <= M + 1; i++)
+//     {
+//         if (i != M + 1){
+//             current->next = new Node;
+//             current = current->next;
+//             current->num = i;
+//             current->next = NULL;
+//         }
+//         else{
+//             current->next = head;
+//             break;
+//         }
+//     }
+//     return head;
+// }
+
+// void listOut(Node* head, int M, int N)
+// {
+//     Node* current = head;
+//     Node* pre = head;
+//     Node* kill = NULL;
+//     while (pre->next != head)
+//         pre = pre->next;
+//     for (int i = 0; i < M; i++)
+//     {
+//         if (i == M-2){
+//             for (int j = 1; j < N; j++)
+//             {
+//                 pre = pre->next;
+//                 current = current->next;
+//             }
+//             cout.width(4);
+//             cout << current->num;
+//             cout.width(4);
+//             cout << pre->num;
+//             delete current;
+//             delete pre;
+//             break;
+//         }
+//         for (int j = 1; j < N; j++)
+//         {
+//             pre = pre->next;
+//             current = current->next;
+//         }
+//         kill = new Node;
+//         kill = current;
+//         cout.width(4);
+//         cout << current->num;
+//         current = current->next;
+//         pre->next = current;
+//         delete kill;
+//     }
+// }
+
+// int main()
+// {
+//     int M,N;
+//     cin >> M;
+//     cin >> N;
+//     Node *head = listcreate(M);
+//     listOut(head, M, N);
+//     return 0;
+// }
+
+// class Boat;
+ 
+// class Car
+// {
+// public:
+// 	Car(int weight){
+// 		this->weight=weight;
+// 	}
+ 
+// 	friend int getToalWeight(Car &c,Boat &b); 
+// private:
+// 	int weight;
+// };
+ 
+// class Boat
+// {
+// public:
+// 	Boat(int weight){
+// 		Boat::weight=weight;
+// 	}
+//     friend int getToalWeight(Car &c,Boat &b); 
+// private:
+// 	int weight;
+// };
+ 
+//     int getToalWeight(Car &c,Boat &b){
+// 		return b.weight+c.weight;
+// 	}
+// int main(){
+// 	Boat b(300);
+// 	Car c(40);
+ 
+// 	cout<<"总重量为:"<<getToalWeight(c,b)<<endl;
+// 	return 0;
+// }
+
+// #include<iostream>
+// #include<cstring>
+
+
+// using namespace std;
+// class Person{
+// public:
+//     typedef enum {
+//         BOY = 0, 
+//         GIRL 
+//     }SexType;
+//     Person(const char *n, int a,SexType s){
+//         name=new char[strlen(n)+1];
+//         strcpy(name,n);
+//         age=a;
+//         sex=s;
+//     }
+//     int get_age() const{
+
+//         return this->age; 
+//     }
+//     Person add_age(int a){
+//         age+=a;
+//         return *this; 
+//     }
+//     ~Person(){
+//         delete [] name;
+//     }
+// private:
+//     char * name;
+//     int age;
+//     SexType sex;
+// };
+
+
+// int main(){
+//     Person p("zhangsan",20,Person::BOY); 
+//     cout<<p.get_age()<<endl;
+//     cout<<p.add_age(10).get_age()<<endl;
+//     return 0;
+// }
+
+#include <iostream>
 
 using namespace std;
-typedef struct node{
-    int num;
-    struct node* next;
-}Node;
 
-Node* listcreate(int M)
+class A
 {
-    int i = 1;
-    Node* head;
-    head = new Node;
-    head->num  = i;
-    head->next = NULL;
-    Node* current = head;
-    for (i = 2; i <= M + 1; i++)
-    {
-        if (i != M + 1){
-            current->next = new Node;
-            current = current->next;
-            current->num = i;
-            current->next = NULL;
-        }
-        else{
-            current->next = head;
-            break;
-        }
-    }
-    return head;
-}
+public:
+    A(int _a):a(_a){};
+    friend class B;
+	
+private:
+    int a;
+};
 
-void listOut(Node* head, int M, int N)
+class B
 {
-    Node* current = head;
-    Node* pre = head;
-    Node* kill = NULL;
-    while (pre->next != head)
-        pre = pre->next;
-    for (int i = 0; i < M; i++)
-    {
-        if (i == M-2){
-            for (int j = 1; j < N; j++)
-            {
-                pre = pre->next;
-                current = current->next;
-            }
-            cout.width(4);
-            cout << current->num;
-            cout.width(4);
-            cout << pre->num;
-            delete current;
-            delete pre;
-            break;
-        }
-        for (int j = 1; j < N; j++)
-        {
-            pre = pre->next;
-            current = current->next;
-        }
-        kill = new Node;
-        kill = current;
-        cout.width(4);
-        cout << current->num;
-        current = current->next;
-        pre->next = current;
-        delete kill;
-    }
-}
+public:
+    int getb(A ca) {
+        return  ca.a; 
+    };
+private:
+	int b;
+};
 
-int main()
+int main() 
 {
-    int M,N;
-    cin >> M;
-    cin >> N;
-    Node *head = listcreate(M);
-    listOut(head, M, N);
+    A a(3);
+    
+	B b;
+	
+    cout<<b.getb(a)<<endl;
+	
     return 0;
 }

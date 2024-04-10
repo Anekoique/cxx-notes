@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/stoair/c/c++/learn/cmake/./include
 
 CXX_FLAGS = 
 
