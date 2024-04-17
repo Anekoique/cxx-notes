@@ -352,37 +352,230 @@ using namespace std;
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
 
-using namespace std;
+// using namespace std;
 
-class A
-{
-public:
-    A(int _a):a(_a){};
-    friend class B;
+// class A
+// {
+// public:
+//     A(int _a):a(_a){};
+//     friend class B;
 	
-private:
-    int a;
-};
+// private:
+//     int a;
+// };
 
-class B
-{
-public:
-    int getb(A ca) {
-        return  ca.a; 
-    };
-private:
-	int b;
-};
+// class B
+// {
+// public:
+//     int getb(A ca) {
+//         return  ca.a; 
+//     };
+// private:
+// 	int b;
+// };
 
-int main() 
-{
-    A a(3);
+// int main() 
+// {
+//     A a(3);
     
-	B b;
+// 	B b;
 	
-    cout<<b.getb(a)<<endl;
+//     cout<<b.getb(a)<<endl;
 	
-    return 0;
+//     return 0;
+// }
+
+// #include<iostream>
+// #include<vector>
+// #include<queue>
+// #include<stack>
+// #include<cstdio>
+
+// using namespace std;
+
+// int main()
+// {
+//     int x;
+//     vector<int> V;
+//     queue<int> Q;
+//     stack<int> S1, S2;
+//     while(scanf("%d", &x) && x != 0)
+//     {
+//         if(x < 0)
+//             V.push_back(x);
+//         if (x>0)
+//         {
+//             int flag = 1;
+//             for (int i = 2; i < x; i++){
+//                 if (x%i == 0){
+//                     flag = 0;
+//                     break;
+//                 }
+//             }
+//             if(flag)
+//                 Q.push(x);
+//             if (x % 2 == 0){
+//                 S1.push(x);
+//             }else{
+//                 S2.push(x);
+//             }
+//         }
+//     }
+//     for (int i : V){
+//         cout << i << '\t';
+//     }
+//     cout << endl;
+//     while (!Q.empty()){
+//         cout << Q.front() << '\t';
+//         Q.pop();
+//     }
+//     cout << endl;
+//     while(!S1.empty()){
+//         cout << S1.top() << '\t';
+//         S1.pop();
+//     }
+//     cout << endl;
+//     while (!S2.empty()){
+//         cout << S2.top() << '\t';
+//         S2.pop();
+//     }
+//     cout << endl;
+    
+// }
+
+// #include<iostream>
+// #include<stack>
+// #include<cstdio>
+
+// using namespace std;
+
+// int main()
+// {
+//     stack<int> s1, s2;
+//     int flag, x;
+//     while(scanf("%d%d", &flag, &x) != EOF)
+//     {
+//         if(flag == 1)
+//             s1.push(x);
+//         else
+//             s2.push(x);
+//     }
+//     while(!s1.empty()){
+//         cout << s1.top() << ' ';
+//         s1.pop();
+//     }
+//     cout << endl;
+//     while (!s2.empty()){
+//         cout << s2.top() << ' ';
+//         s2.pop();
+//     }
+// }
+
+// int main()
+// {
+//     // char * str;
+//     // cin >> str;
+//     // cout << str << endl;
+//     char string[15];
+//     cin >> string;
+//     cout << string <<endl;
+//     char * str = string;
+//     cout << str << endl;
+// }
+
+// #include<stdio.h>
+// #include<stdlib.h>
+
+// struct list
+// {
+//     int data;
+//     struct list *next;
+//     struct list *pre;
+// };
+
+// void stackPush(struct list *stack,int x)
+// {
+//     struct list *current = stack;
+//     struct list *pre;
+//     while (current->next != stack){
+//         if (current->next == NULL)
+//             break;
+//         current = current->next;
+//     }
+//     current->next = (struct list*)malloc(sizeof(struct list));
+//     current->next->pre = current;
+//     current = current->next;
+//     current->data = x;
+//     current->next = stack;
+//     stack->pre = current;
+// }
+
+// void queuePush(struct list *queue, int x)
+// {
+//     struct list *current = queue;
+//     while (current->next != NULL){
+//         current = current->next;
+//     }
+//     current->next = (struct list*)malloc(sizeof(struct list));
+//     current = current->next;
+//     current->data = x;
+//     current->next = NULL;
+// }
+
+// void stackShow(struct list *stack)
+// {
+//     struct list *current = stack;
+//     while (current->next != stack)
+//         current = current->next;
+//     while (current != stack){
+//         printf("%5d", current->data);
+//         current = current->pre;
+//     }
+// }
+
+// void queueShow(struct list *queue)
+// {
+//     struct list *current = queue->next;
+//     while(current->next != NULL)
+//     {
+//         printf("%5d", current->data);
+//         current = current->next;
+//     }
+// }
+
+// int main()
+// {
+//     int x;
+//     struct list *stack;
+//     struct list *queue;
+//     stack = (struct list*)malloc(sizeof(struct list));
+//     stack->next = NULL;
+//     queue = (struct list*)malloc(sizeof(struct list));
+//     queue->next = NULL;
+//     while (scanf("%d", &x) != EOF)
+//     {
+//         if (x > 0)
+//             stackPush(stack, x);
+//         else if (x < 0)
+//             queuePush(queue, x);
+//     }
+//     stackShow(stack);
+//     queueShow(queue);
+// }
+
+void add(int a, int b)
+{
+    printf("%d", a + b);
+}
+int main()
+{
+    int a = 1;
+    int b = 2;
+    int *ptr1 = &a;
+    int *ptr2 = &b;
+    add(a++, b++);
+    printf("%d%d", a, b);
+    printf("\n%d%d", )
 }
