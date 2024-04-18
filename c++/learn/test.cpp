@@ -565,17 +565,79 @@ using namespace std;
 //     queueShow(queue);
 // }
 
-void add(int a, int b)
+// void add(int a, int b)
+// {
+//     printf("%d", a + b);
+// }
+// int main()
+// {
+//     int a = 1;
+//     int b = 2;
+//     int *ptr1 = &a;
+//     int *ptr2 = &b;
+//     add(a++, b++);
+//     printf("%d%d", a, b);
+//     printf("\n%d%d", )
+// }
+
+#include<iostream>
+#include<cstdio>
+
+using namespace std;
+class Matrix
 {
-    printf("%d", a + b);
+public:
+    Matrix(int m, int n);
+    void ReadMatrix();
+    void WriteMatrix();
+    void Transpose(Matrix& B);
+private:
+    int* M;
+    int row, column;
+};
+Matrix::Matrix(int m,int n)
+{
+    M = new int[m * n];
+    row = m;
+    column = n;
+}
+void Matrix::ReadMatrix()
+{
+    int t;
+    for (int i = 0; i < row; i++){
+        for (int j = 0; j < column; j++){
+            scanf("%d", &t);
+            M[i * row + j] = t;
+        }
+    }
+}
+void Matrix::WriteMatrix()
+{
+    for (int i = 0; i < row; i++){
+        for (int j = 0; j < column; j++){
+            printf("%d ", M[i * row + j]);
+        }
+        printf("\n");
+    }
+}
+void Matrix::Transpose(Matrix& B)
+{
+    for (int j = 0; j < column; j++){
+        for (int i = 0; i < row; i++){
+            B.M[j * column + i] = M[i * row + j];
+        }
+    }
 }
 int main()
 {
-    int a = 1;
-    int b = 2;
-    int *ptr1 = &a;
-    int *ptr2 = &b;
-    add(a++, b++);
-    printf("%d%d", a, b);
-    printf("\n%d%d", )
+    int m, n;
+    cin >> m >> n;
+    Matrix A(m, n);
+    A.ReadMatrix();
+    A.WriteMatrix();
+    Matrix B(n, m);
+    A.Transpose(B);
+    B.WriteMatrix();
+    system("pause");
+    return 0;
 }
