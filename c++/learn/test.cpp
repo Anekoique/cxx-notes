@@ -580,64 +580,115 @@ using namespace std;
 //     printf("\n%d%d", )
 // }
 
-#include<iostream>
-#include<cstdio>
+// #include<iostream>
+// #include<cstdio>
 
-using namespace std;
-class Matrix
-{
-public:
-    Matrix(int m, int n);
-    void ReadMatrix();
-    void WriteMatrix();
-    void Transpose(Matrix& B);
-private:
-    int* M;
-    int row, column;
-};
-Matrix::Matrix(int m,int n)
-{
-    M = new int[m * n];
-    row = m;
-    column = n;
-}
-void Matrix::ReadMatrix()
-{
-    int t;
-    for (int i = 0; i < row; i++){
-        for (int j = 0; j < column; j++){
-            scanf("%d", &t);
-            M[i * row + j] = t;
-        }
-    }
-}
-void Matrix::WriteMatrix()
-{
-    for (int i = 0; i < row; i++){
-        for (int j = 0; j < column; j++){
-            printf("%d ", M[i * row + j]);
-        }
-        printf("\n");
-    }
-}
-void Matrix::Transpose(Matrix& B)
-{
-    for (int j = 0; j < column; j++){
-        for (int i = 0; i < row; i++){
-            B.M[j * column + i] = M[i * row + j];
-        }
-    }
-}
+// using namespace std;
+// class Matrix
+// {
+// public:
+//     Matrix(int m, int n);
+//     void ReadMatrix();
+//     void WriteMatrix();
+//     void Transpose(Matrix& B);
+// private:
+//     int* M;
+//     int row, column;
+// };
+// Matrix::Matrix(int m,int n)
+// {
+//     M = new int[m * n];
+//     row = m;
+//     column = n;
+// }
+// void Matrix::ReadMatrix()
+// {
+//     int t;
+//     for (int i = 0; i < row; i++){
+//         for (int j = 0; j < column; j++){
+//             scanf("%d", &t);
+//             M[i * row + j] = t;
+//         }
+//     }
+// }
+// void Matrix::WriteMatrix()
+// {
+//     for (int i = 0; i < row; i++){
+//         for (int j = 0; j < column; j++){
+//             printf("%d ", M[i * row + j]);
+//         }
+//         printf("\n");
+//     }
+// }
+// void Matrix::Transpose(Matrix& B)
+// {
+//     for (int j = 0; j < column; j++){
+//         for (int i = 0; i < row; i++){
+//             B.M[j * column + i] = M[i * row + j];
+//         }
+//     }
+// }
+// int main()
+// {
+//     int m, n;
+//     cin >> m >> n;
+//     Matrix A(m, n);
+//     A.ReadMatrix();
+//     A.WriteMatrix();
+//     Matrix B(n, m);
+//     A.Transpose(B);
+//     B.WriteMatrix();
+//     system("pause");
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+ 
+// class A {
+// public:
+// 	int x;
+// 	A(int x) : x(x)
+// 	{
+// 		cout << "Constructor" << endl;
+// 	}
+// 	A(A& a) : x(a.x)
+// 	{
+// 		cout << "Copy Constructor" << endl;
+// 	}
+// 	A& operator=(A& a)
+// 	{
+// 		x = a.x;
+// 		cout << "Copy Assignment operator" << endl;
+// 		return *this;
+// 	}
+// 	A(A&& a) : x(a.x)
+// 	{
+// 		cout << "Move Constructor" << endl;
+// 	}
+// 	A& operator=(A&& a)
+// 	{
+// 		x = a.x;
+// 		cout << "Move Assignment operator" << endl;
+// 		return *this;
+// 	}
+// };
+ 
+ 
+// int main()
+// {
+// 	A a(1);
+// 	A b = a;
+// 	A c(a);
+// 	b = a;
+// 	A e = move(a);
+//     b = move(a);
+// 	return 0;
+// }
+
 int main()
 {
-    int m, n;
-    cin >> m >> n;
-    Matrix A(m, n);
-    A.ReadMatrix();
-    A.WriteMatrix();
-    Matrix B(n, m);
-    A.Transpose(B);
-    B.WriteMatrix();
-    system("pause");
-    return 0;
+    string a = "Ace";
+    string b = "ace";
+    cout << (b < a) << endl;
 }
