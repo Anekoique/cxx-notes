@@ -688,7 +688,5 @@ using namespace std;
 
 int main()
 {
-    string a = "Ace";
-    string b = "ace";
-    cout << (b < a) << endl;
+    
 }

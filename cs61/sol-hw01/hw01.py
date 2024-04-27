@@ -34,7 +34,7 @@ def two_of_three(i, j, k):
     positive numbers i, j, and k.
 
     >>> two_of_three(1, 2, 3)
-    5
+    5 
     >>> two_of_three(5, 3, 1)
     10
     >>> two_of_three(10, 2, 8)
