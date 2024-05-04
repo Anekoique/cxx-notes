@@ -24,5 +24,3 @@ def index(keys, values, match):
     {7: [35, 42, 49], 9: [36, 45], 11: [33, 44]}
     """
     return {k: [v for v in values if match(k, v)] for k in keys}
-
-
