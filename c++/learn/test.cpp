@@ -686,6 +686,7 @@ using namespace std;
 // 	return 0;
 // }
 <<<<<<< HEAD
+<<<<<<< HEAD
 //
 //class Base {
 //public:
@@ -794,9 +795,15 @@ int main()
 	printf("%d", a);
 }
 =======
+=======
+>>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
 
 int main()
 {
     
+<<<<<<< HEAD
+}
+>>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
+=======
 }
 >>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
