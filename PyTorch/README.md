@@ -1,0 +1,5 @@
+- pandas
+- matplotlib
+- numpy
+- os
+- 矩阵求导
