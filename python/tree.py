@@ -18,41 +18,13 @@ def is_tree(tree):
 	return True
 
 def is_leaf(tree):
-<<<<<<< HEAD
-<<<<<<< HEAD
-	if len(tree) == 1:
-		return True
-	else:
-		return False
-=======
 	return not branches(tree)
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-=======
-	return not branches(tree)
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
 
 def fib_tree(n):
 	if n <= 1:
 		return tree(n)
 	else:
 		left, right = fib_tree(n-2), fib_tree(n-1)
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return tree(label(left)+label(right), [left, right])
-
-def count_leaves(t):
-	num = 0
-	if is_leaf(t):
-		return 1
-#	for branch in branches(t):
-#		num += count_leaves(branch)
-#	return num
-	else:
-		branch_counts = [count_leaves(b) for b in branches(t)]
-		return sum(branch_counts)
-=======
-=======
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
 		return tree(label(left) + label(right), [left, right])
 
 def count_leaves(t):
@@ -60,31 +32,17 @@ def count_leaves(t):
 		return 1
 	else:
 		return sum([count_leaves(b) for b in branches(t)])
-<<<<<<< HEAD
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-=======
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
 
 def leaves(tree):
 	if is_leaf(tree):
 		return [label(tree)]
 	else:
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return sum([leaves(branch) for branch in branches(tree)], [])
-=======
 		return sum(leaves(b) for b in branches(tree))
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-=======
-		return sum(leaves(b) for b in branches(tree))
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
 
 def increment_leaves(t):
 	if is_leaf(t):
 		return tree(label(t) + 1)
 	else:
-<<<<<<< HEAD
-<<<<<<< HEAD
 		bs = [increment_leaves(b) for b in branches(t)]
 		return tree(label(t), bs)
 
@@ -151,11 +109,3 @@ def find_path(t, x):
 t2 = tree(5, [tree(6), tree(7)]) 
 t1 = tree(3, [tree(4), t2])
 print(has_path(t2, [5, 6]))
-=======
-		bs = 
-
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-=======
-		bs = 
-
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
