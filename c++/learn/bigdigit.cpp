@@ -176,6 +176,7 @@ void minus(char* a, char* b)
         len2 = tmp;
     }
     char* result = (char*)malloc(1000 * sizeof(char));
+    char* current = result;
     result[0] = '\0';
     char* ptr1 = a + len1 -1;
     char* ptr2 = b + len2 - 1;
@@ -192,25 +193,26 @@ void minus(char* a, char* b)
         }else{
             borrow = 0;
         }
-        *(result + (ptr1 - a)) = diff + '0';
+        *(current + (ptr1 - a)) = diff + '0';
         if (ptr2 >= b){
             ptr2--;
         }
         ptr1--;
     }
-    while (*result == '0' && *(result + 1) != '\0'){
-        result++;
+    while (*current == '0' && *(current + 1) != '\0'){
+        current++;
     }
-    if (*result == '\0')
+    if (*current == '\0')
         printf("0\n");
     else
-        printf("%s\n", result);
+        printf("%s\n", current);
     free(result);
 }
 int main()
 {
     char* str1 = (char*)malloc(1000 * sizeof(char));
     char* str2 = (char*)malloc(1000 * sizeof(char));
+    scanf("%s%s", str1, str2);
     int flag;
     if (*str1 == '-' && *str2 == '-')
         flag = 1;

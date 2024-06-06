@@ -104,8 +104,6 @@ def find_path(t, x):
 		path = find_path(b, x)
 	return None
 
-
-
 t2 = tree(5, [tree(6), tree(7)]) 
 t1 = tree(3, [tree(4), t2])
 print(has_path(t2, [5, 6]))

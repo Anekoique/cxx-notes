@@ -26,7 +26,7 @@ using namespace std;
 // int main()
 // {
 //     auto start = std::chrono::high_resolution_clock::now();
-//     int x = 1;
+//     int x = 3;
 //     cout << change(x) << endl;
 //     auto end = std::chrono::high_resolution_clock::now();
 //     std::chrono::duration<double> duration = end - start;
@@ -685,8 +685,6 @@ using namespace std;
 //     b = move(a);
 // 	return 0;
 // }
-<<<<<<< HEAD
-<<<<<<< HEAD
 //
 //class Base {
 //public:
@@ -779,31 +777,14 @@ using namespace std;
 //	pDerivedClass->fn1();
 //	pDerivedClass->
 //}
-//
+int main() {
+	int a;
+	cin >> a;
+	cout << a;
+	int number = 1;
+	cout << number;
+	cout << number;
+	cout << number;
+	return number;
+}
 
-int & add(int & a)
-{
-	printf("%d\n", a);
-	return a;
-}
-int main()
-{
-	int a = 1;
-	int *  b = add(a);
-	*b++;
-	printf("%d\n", *b);
-	printf("%d", a);
-}
-=======
-=======
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-
-int main()
-{
-    
-<<<<<<< HEAD
-}
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
-=======
-}
->>>>>>> a6e1d5dabdbd8c2b4d49945224761cd3309122ef
