@@ -777,14 +777,13 @@ using namespace std;
 //	pDerivedClass->fn1();
 //	pDerivedClass->
 //}
-int main() {
-	int a;
-	cin >> a;
-	cout << a;
-	int number = 1;
-	cout << number;
-	cout << number;
-	cout << number;
-	return number;
-}
-
+// int main() {
+// 	int a;
+// 	cin >> a;
+// 	cout << a;
+// 	int number = 1;
+// 	cout << number;
+// 	cout << number;
+// 	cout << number;
+// 	return number;
+// }

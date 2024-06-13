@@ -1,0 +1,3 @@
+/home/stoair/c/c++/learn/badstring/build/CMakeFiles/main.dir
+/home/stoair/c/c++/learn/badstring/build/CMakeFiles/edit_cache.dir
+/home/stoair/c/c++/learn/badstring/build/CMakeFiles/rebuild_cache.dir
