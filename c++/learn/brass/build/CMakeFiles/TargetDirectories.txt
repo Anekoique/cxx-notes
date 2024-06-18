@@ -1,3 +1,4 @@
 /home/stoair/c/c++/learn/brass/build/CMakeFiles/main.dir
+/home/stoair/c/c++/learn/brass/build/CMakeFiles/main2.dir
 /home/stoair/c/c++/learn/brass/build/CMakeFiles/edit_cache.dir
 /home/stoair/c/c++/learn/brass/build/CMakeFiles/rebuild_cache.dir

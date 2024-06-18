@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/stoair/c/c++/learn/brass
+CMAKE_SOURCE_DIR = /home/stoair/c/c++/learn/student
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/stoair/c/c++/learn/brass/build
+CMAKE_BINARY_DIR = /home/stoair/c/c++/learn/student/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/stoair/c/c++/learn/brass/build/CMakeFiles /home/stoair/c/c++/learn/brass/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/stoair/c/c++/learn/student/build/CMakeFiles /home/stoair/c/c++/learn/student/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/stoair/c/c++/learn/brass/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/stoair/c/c++/learn/student/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,46 +129,6 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-#=============================================================================
-# Target rules for targets named main2
-
-# Build rule for target.
-main2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main2
-.PHONY : main2
-
-# fast build rule for target.
-main2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/build
-.PHONY : main2/fast
-
-brass.o: brass.cpp.o
-.PHONY : brass.o
-
-# target to build an object file
-brass.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/brass.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/brass.cpp.o
-.PHONY : brass.cpp.o
-
-brass.i: brass.cpp.i
-.PHONY : brass.i
-
-# target to preprocess a source file
-brass.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/brass.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/brass.cpp.i
-.PHONY : brass.cpp.i
-
-brass.s: brass.cpp.s
-.PHONY : brass.s
-
-# target to generate assembly for a file
-brass.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/brass.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/brass.cpp.s
-.PHONY : brass.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -193,29 +153,29 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-main2.o: main2.cpp.o
-.PHONY : main2.o
+student.o: student.cpp.o
+.PHONY : student.o
 
 # target to build an object file
-main2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/main2.cpp.o
-.PHONY : main2.cpp.o
+student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/student.cpp.o
+.PHONY : student.cpp.o
 
-main2.i: main2.cpp.i
-.PHONY : main2.i
+student.i: student.cpp.i
+.PHONY : student.i
 
 # target to preprocess a source file
-main2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/main2.cpp.i
-.PHONY : main2.cpp.i
+student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/student.cpp.i
+.PHONY : student.cpp.i
 
-main2.s: main2.cpp.s
-.PHONY : main2.s
+student.s: student.cpp.s
+.PHONY : student.s
 
 # target to generate assembly for a file
-main2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main2.dir/build.make CMakeFiles/main2.dir/main2.cpp.s
-.PHONY : main2.cpp.s
+student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/student.cpp.s
+.PHONY : student.cpp.s
 
 # Help Target
 help:
@@ -226,16 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
-	@echo "... main2"
-	@echo "... brass.o"
-	@echo "... brass.i"
-	@echo "... brass.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... main2.o"
-	@echo "... main2.i"
-	@echo "... main2.s"
+	@echo "... student.o"
+	@echo "... student.i"
+	@echo "... student.s"
 .PHONY : help
 
 

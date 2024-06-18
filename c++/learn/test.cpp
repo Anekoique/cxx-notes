@@ -787,3 +787,32 @@ using namespace std;
 // 	cout << number;
 // 	return number;
 // }
+
+class base
+{
+	int * ptr1;
+public:
+	base() {ptr1 = new int(2);}
+	~base() { cout << "base delete "; delete ptr1;}
+};
+
+class derived : public base
+{
+	int * ptr2;
+public:
+	derived() : base()
+	{
+		ptr2 = new int (3);
+	}
+	~derived()
+	{
+		cout << "derived delete";
+		delete ptr2;
+	}
+};
+
+int main()
+{
+	derived Cla;
+	return 0;
+}
