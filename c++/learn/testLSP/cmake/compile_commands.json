@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake",
+  "command": "/usr/bin/cc -DSOME_DEFINITION   -o CMakeFiles/my_app.dir/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c.o -c /home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c",
+  "file": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c"
+},
+{
+  "directory": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake",
+  "command": "/usr/bin/c++ -DSOME_DEFINITION  -std=gnu++17 -o CMakeFiles/my_app.dir/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+  "file": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/3.22.1/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+},
+{
+  "directory": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake",
+  "command": "/usr/bin/cc -DSOME_DEFINITION   -o CMakeFiles/my_app.dir/main.c.o -c /home/stoair/cPlusPlus/c++/learn/testLSP/main.c",
+  "file": "/home/stoair/cPlusPlus/c++/learn/testLSP/main.c"
+},
+{
+  "directory": "/home/stoair/cPlusPlus/c++/learn/testLSP/cmake",
+  "command": "/usr/bin/c++ -DSOME_DEFINITION  -std=gnu++17 -o CMakeFiles/my_app.dir/main.cpp.o -c /home/stoair/cPlusPlus/c++/learn/testLSP/main.cpp",
+  "file": "/home/stoair/cPlusPlus/c++/learn/testLSP/main.cpp"
+}
+]

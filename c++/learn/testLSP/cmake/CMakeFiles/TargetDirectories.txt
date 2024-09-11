@@ -1,0 +1,3 @@
+/home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/my_app.dir
+/home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/edit_cache.dir
+/home/stoair/cPlusPlus/c++/learn/testLSP/cmake/CMakeFiles/rebuild_cache.dir

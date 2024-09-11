@@ -45,52 +45,65 @@
 //}
 //
 
-#include<iostream>
-class math {
-	int a;
-	static int A;
-public:
-	math(int x = 1) : a(x){};
-	explicit math(double x);
-	int add(int x, int y) {
-		return a + x + y;
-	}
-	math operator+(int x) {
-		math A;
-		A.a = x + a;
-		return A;
-	}
-	friend math operator+(int x, const math & X);
-	friend std::ostream &  operator<<(std::ostream & os, const math & X);	
-	int geta() const {return a;}
-	// int getA() const {return A;}
-};
+//#include<iostream>
+//class math {
+//	int a;
+//	static int A;
+//public:
+//	math(int x = 1) : a(x){};
+//	explicit math(double x);
+//	int add(int x, int y) {
+//		return a + x + y;
+//	}
+//	math operator+(int x) {
+//		math A;
+//		A.a = x + a;
+//		return A;
+//	}
+//	friend math operator+(int x, const math & X);
+//	friend std::ostream &  operator<<(std::ostream & os, const math & X);	
+//	int geta() const {return a;}
+//	// int getA() const {return A;}
+//};
+//
+//math::math(double x) {
+//	a = (int)x;
+//}
+//
+//math operator+(int x, const math & X) {
+//	math A;
+//	A.a = x + X.a;
+//    return A;	
+//}
+//
+//std::ostream & operator<<(std::ostream & os, const math & X) {
+//	os << X.a;
+//	return os;
+//}
+//
+//int main() {
+//	math a(1);
+//	math b = 2 + a;
+//	math c = a + 2;
+//	std::cout << b.geta() << std::endl;
+//	std::cout << c.geta() << std::endl;
+//	std::cout << a << std::endl;
+//	// std::cout << a.getA() << std::endl;
+//	math A;
+//	A = (math)16.6;
+//	std::cout << A.geta() << std::endl;
+//}
 
-math::math(double x) {
-	a = (int)x;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	vector<int> vec = {1, 2 , 3};
+	vec.erase(remove(vec.begin(), vec.end(), 1), vec.end());
+	for (int i = 0; i < vec.size(); i++) cout << vec[i];
+	return 0;
 }
-
-math operator+(int x, const math & X) {
-	math A;
-	A.a = x + X.a;
-    return A;	
-}
-
-std::ostream & operator<<(std::ostream & os, const math & X) {
-	os << X.a;
-	return os;
-}
-
-int main() {
-	math a(1);
-	math b = 2 + a;
-	math c = a + 2;
-	std::cout << b.geta() << std::endl;
-	std::cout << c.geta() << std::endl;
-	std::cout << a << std::endl;
-	// std::cout << a.getA() << std::endl;
-	math A;
-	A = (math)16.6;
-	std::cout << A.geta() << std::endl;
-}
-
