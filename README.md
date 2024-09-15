@@ -171,8 +171,6 @@ int gcd(int a, int b)
 }
 ```
 
-
-
 ***
 
 # C-常见错误
@@ -809,13 +807,193 @@ for (vector<int>::iterator it = vec.begin(); it != vec.end(); it++) cout << vec[
 for (type it : vec) cout << it; / for (auto it : vec) cout << it;
 ```
 
+### （2）map
 
+```c++
+// 构造
+map<type1, type2> obj;
+
+// 插入
+// insert 构造定义， 返回pair对象
+pair<iterator, bool> insert (const value_type& val);
+// 插入1
+obj.insert(pair<type1, type2>(value1, value2));
+// 插入2
+obj.insert(map<type1, type2>::value_type(value1, value2));
+// 插入3 + 覆盖
+obj[value1] = value2;
+// 插入1/2 是否成功
+pair<map <type1, type2>::iterator, bool> Insert_Pair;
+Insert_Pair = obj.insert(map<int, string>::value_type(value1, value2));
+if (!Insert_Pair.second)
+    cout << "Error!" << endl;
+
+// 查找
+iter = obj.find("type1");
+cout << iter->second << endl;
+
+// 删除
+// 迭代器删除
+iter = obj.find("type1");
+obj.erase(iter);
+// 关键字删除
+int n = obj.erase("type1"); // 删除成功返回1
+// 迭代器范围删除
+obj.erase(obj.begin(), obj.end());
+// =
+obj.clearthist
+```
 
 ### 2、迭代器
 
 ### 3、算法
 
 ### 4、智能指针
+
+一个shared_ptr和n个weak_ptr搭配使用而不是n个shared_ptr。
+因为一般模型中，最好总是被一个指针控制生命周期，然后可以被n个指针控制访问。
+
+逻辑上，大部分模型的生命在直观上总是受某一样东西直接控制而不是多样东西共同控制。
+程序上，能够完全避免生命周期互相控制引发的 循环引用问题。
+
+### （1）~~auto_ptr~~
+
+```c++
+// auto_ptr源码
+// c++11 弃用，仅用于理解智能指针
+template<class X> 
+class auto_ptr {
+private:
+    X* ptr;
+    mutable bool owns;
+public:
+    typedef X element_type;
+    explicit auto_ptr(X* p = 0) __STL_NOTHROW : ptr(p), owns(p) {}
+    auto_ptr(const auto_ptr& a) __STL_NOTHROW : ptr(a.ptr), owns(a.owns) {
+        a.owns = 0;
+    }
+    template<class T> auto_ptr(const auto_ptr<T>& a) __STL_NOTHROW 
+        : ptr(a.ptr), owns(a.owns) {
+        a.owns = 0;
+    }
+
+    auto_ptr& operator=(const auto_ptr& a) __STL_NOTHROW {
+        if (&a != this) {
+            if (owns) 
+                delete ptr;
+            owns = a.owns;
+            ptr = a.ptr;
+            a.owns = 0;
+        }
+    }
+    template<class T> auto_ptr& operator=(const auto_ptr<T>& a) __STL_NOTHROW {
+        if (&a &= this) {
+            if (owns)
+                delete ptr;
+            owns = a.owns;
+            ptr = a.ptr;
+            a.owns = 0;
+        }
+    }
+    ~auto_ptr() {
+        if (owns)
+            delete ptr;
+    }
+
+    X& operator*() const __STL_NOTHROW { return *ptr; }
+    X* operator->() const __STL_NOTHROW { return ptr; }
+    X* get() const __STL_NOTHROW { return ptr; }
+    X* release() const __STL_NOTHROW { owns = false; return ptr; }
+};
+
+// 会引发的问题
+void runGame(){
+    std::auto_ptr<Monster> monster1(new Monster());//monster1 指向 一个怪物
+    monster1->doSomething();//怪物做某种事
+    std::auto_ptr<Monster> monster2 = monster1;//转移指针
+    monster2->doSomething();//怪物做某种事
+    monster1->doSomething();//Oops!monster1智能指针指向了nullptr，运行期崩溃。
+}
+```
+
+### （2）unique_ptr
+
+但是unique_ptr的名字能更好的体现它的语义，而且在语法上比auto_ptr更安全（尝试复制unique_ptr时会编译期出错，而auto_ptr能通过编译期从而在运行期埋下出错的隐患）
+
+假如你真的需要转移所有权（独占权），那么你就需要用std::move(std::unique_ptr对象)语法，尽管转移所有权后 还是有可能出现原有指针调用（调用就崩溃）的情况。
+但是这个语法能强调你是在转移所有权，让你清晰的知道自己在做什么，从而不乱调用原有指针。
+
+```c++
+void runGame(){
+　　std::unique_ptr<Monster> monster1(new Monster());//monster1 指向 一个怪物
+　　std::unique_ptr<Monster> monster2 = monster1;//Error!编译期出错，不允许复制指针指向同一个资源。
+　　std::unique_ptr<Monster> monster3 = std::move(monster1);//转移所有权给monster3.
+　　monster1->doSomething();//Oops!monster1指向nullptr，运行期崩溃
+}
+```
+
+### （3）shared_ptr
+
+多个shared_ptr指向同一处资源，当所有shared_ptr都全部释放时，该处资源才释放。
+（有某个对象的所有权（访问权，生命控制权） 即是 强引用，所以shared_ptr是一种强引用型指针）
+
+```c++
+// shared计数放在这个结构体里面，实际上结构体里还应该有另一个weak计数。下文介绍weak_ptr时会解释。
+struct SharedPtrControlBlock{
+　　int shared_count;
+};
+// 大概长这个样子（化简版）
+template<class T>
+class shared_ptr{
+　　T* ptr;
+　　SharedPtrControlBlock* count;
+};
+
+// 可能会产生的问题：互相/环 引用
+class Monster{
+　　std::shared_ptr<Monster> m_father;
+　　std::shared_ptr<Monster> m_son;
+public:
+　　void setFather(std::shared_ptr<Monster>& father);
+　　void setSon(std::shared_ptr<Monster>& son);　　　 
+　　~Monster(){std::cout << "A monster die!";}　　　　//析构时发出死亡的悲鸣
+};
+void runGame(){
+    std::shared_ptr<Monster> father = new Monster();
+    std::shared_ptr<Monster> son = new Monster();
+    father->setSon(son);
+    son->setFather(father);
+}
+```
+
+### （4）weak_ptr
+
+weak_ptr是为了辅助shared_ptr的存在，它只提供了对管理对象的一个访问手段，同时也可以实时动态地知道指向的对象是否存活。
+
+（只有某个对象的访问权，而没有它的生命控制权 即是 弱引用，所以weak_ptr是一种弱引用型指针）
+
+```c++
+// shared引用计数和weak引用计数
+// 之前的计数区域实际最终应该长这个样子
+struct SharedPtrControlBlock{
+　　int shared_count;  // 被管理资源释放取决与shared_count
+　　int weak_count; // weak_ptr 构造析构引起变化
+};
+// 大概长这个样子（化简版）
+template<class T>
+class weak_ptr{
+　　T* ptr;
+　　SharedPtrControlBlock* count;
+};
+
+// 局限性
+void runGame(){
+　　std::shared_ptr<Monster> monster1(new Monster());
+　　std::weak_ptr<Monster> r_monster1 = monster1;
+　　r_monster1->doSomething();//Error! 编译器出错！weak_ptr没有重载* 和 -> ，无法直接当指针用
+　　std::shared_ptr<Monster> s_monster1 = r_monster1.lock();//OK!可以通过weak_ptr的lock方法获得shared_ptr。
+}
+```
 
 ## 七、IO流
 
