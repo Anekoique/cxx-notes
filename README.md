@@ -741,11 +741,75 @@ public、private、protect继承
 
 ## 五、异常处理
 
-### 1、异常机制
+### 1、处理方式
 
-### 2、异常规范
+### （1）abort()
+
+直接退出程序
+
+```c++
+if (a == -b) {
+    std::cout << "error";
+    std::abort();
+}
+```
+
+### （2）返回错误
+
+函数返回值，指出错误
+
+### （3）异常机制
+
+```c++
+try {
+    ...
+    throw type;
+}
+catch (type) {
+    ...
+}
+```
+
+### （4）传递对象
+
+```c++
+class EXCEPT
+{
+   	...
+}
+catch(EXCEPT & except) {
+ 	...   
+}
+```
+
+### 2、~~异常规范~~
+
+c++11删除
 
 ### 3、exception类
+
+```c++
+// exception 作为其它异常类的基类
+// what()虚函数 重新定义
+#include <exception>
+class new_exc : public std::exception
+{
+public:
+    const char * what() { return "str"; }
+};
+// usage
+try {
+    ...
+}
+catch(std::exception & e) {
+    cout << e.what() << endl;
+}
+
+// 基于exception的异常类型
+// - stdexcept 
+// - bad_alloc
+// - ...
+```
 
 ## 六、STL
 
@@ -842,6 +906,44 @@ int n = obj.erase("type1"); // 删除成功返回1
 obj.erase(obj.begin(), obj.end());
 // =
 obj.clearthist
+```
+
+### （3）string
+
+```c++
+// 构造
+string str("string");
+string str{"string"};
+string str(num, 'a'); // str:"aaa..."
+string str2(str);
+string str = "string";
+
+// 获取长度
+int len1 = string.length();
+int len2 = string.size();
+
+// + .append() push_back()
+// == > ...
+
+// 获取字串
+string subStr = str.substr(3, 5);
+
+// 查找 
+// 未找到返回 string::npos
+size_type find (const string& str, size_type pos = 0) const;
+size_type find (const char *s, size_type pos, size_type n); 
+size_type find (char ch, size_type pos = 0) const;
+size_type rfind (char ch, size_type pos = str.length()-1) const;
+// string.find_first_of()
+// string.find_last_of()
+// string.find_first_not_of()
+// string.find_last_not_of()
+
+// 交换
+str1.swap(str2);
+
+// 转化
+
 ```
 
 ### 2、迭代器
@@ -996,6 +1098,10 @@ void runGame(){
 ```
 
 ## 七、IO流
+
+## 八、C++ 11
+
+### 1、random
 
 
 
