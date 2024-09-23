@@ -943,8 +943,12 @@ size_type rfind (char ch, size_type pos = str.length()-1) const;
 str1.swap(str2);
 
 // 转化
-
+std::string str = std::to_string(value);
+int num = std::stoi(stringValue);
+double num = std::stod(stringValue);
 ```
+
+### （4）queue
 
 ### 2、迭代器
 
@@ -1034,6 +1038,12 @@ void runGame(){
 }
 ```
 
+```c++
+// make_unique<type>
+```
+
+
+
 ### （3）shared_ptr
 
 多个shared_ptr指向同一处资源，当所有shared_ptr都全部释放时，该处资源才释放。
@@ -1067,6 +1077,12 @@ void runGame(){
     son->setFather(father);
 }
 ```
+
+```c++
+// make_shared<type> 
+```
+
+
 
 ### （4）weak_ptr
 
@@ -1103,7 +1119,49 @@ void runGame(){
 
 ### 1、random
 
+```c++
 
+```
+
+### 2、function
+
+### 3、lambda
+
+```c++
+// [capture list] (params list) mutable exception-> return type { function body }
+// capture list：捕获外部变量列表
+// params list：形参列表
+// mutable指示符：用来说用是否可以修改捕获的变量
+// exception：异常设定
+// return type：返回类型
+// function body：函数体
+```
+
+### 4、initializer_list
+
+### 5、default/delete
+
+```c++
+// =delete 显式的禁用某个函数
+class X3 {
+public:
+    X3();
+    X3(const X3&) = delete;  // 声明拷贝构造函数为 deleted 函数
+    X3& operator = (const X3 &) = delete; // 声明拷贝赋值操作符为 deleted 函数
+};
+
+// =default 生成编译器默认构造函数
+```
+
+### 6、variadic template
+
+```c++
+// Args 是一个模板参数包；rest 是一个函数参数包
+// Args 表示零个或多个模板类型参数
+// rest 表示零个或多个函数参数
+template <typename T, typename... Args>
+void foo(const T &t, const Args& ... rest);
+```
 
 
 
