@@ -1163,7 +1163,61 @@ template <typename T, typename... Args>
 void foo(const T &t, const Args& ... rest);
 ```
 
+### 7、regex
 
+std::regex默认使用是ECMAScript文法，这种文法比较好用，且威力强大，常用符号的意义如下：
+
+| 符号  | 意义                           |
+| ----- | ------------------------------ |
+| ^     | 匹配行的开头                   |
+| $     | 匹配行的结尾                   |
+| .     | 匹配任意单个字符               |
+| […]   | 匹配[]中的任意一个字符         |
+| (…)   | 设定分组                       |
+| \     | 转义字符                       |
+| \d    | 匹配数字[0-9]                  |
+| \D    | \d 取反                        |
+| \w    | 匹配字母[a-z]，数字，下划线    |
+| \W    | \w 取反                        |
+| \s    | 匹配空格                       |
+| \S    | \s 取反                        |
+| +     | 前面的元素重复1次或多次        |
+| *     | 前面的元素重复任意次           |
+| ?     | 前面的元素重复0次或1次         |
+| {n}   | 前面的元素重复n次              |
+| {n,}  | 前面的元素重复至少n次          |
+| {n,m} | 前面的元素重复至少n次，至多m次 |
+| \|    | 逻辑或                         |
+
+- 匹配
+
+```c++
+ 1  std::regex reg("<.*>.*</.*>");
+ 2  bool ret = std::regex_match("<html>value</html>", reg);
+ 3  assert(ret);
+ 4  
+ 5  ret = std::regex_match("<xml>value<xml>", reg);
+ 6  assert(!ret);
+ 7  
+ 8  std::regex reg1("<(.*)>.*</\\1>");
+ 9  ret = std::regex_match("<xml>value</xml>", reg1);
+10  assert(ret);
+11  
+12  ret = std::regex_match("<header>value</header>", std::regex("<(.*)>value</\\1>"));
+13  assert(ret);
+14  
+15  // 使用basic文法
+16  std::regex reg2("<\\(.*\\)>.*</\\1>", std::regex_constants::basic);
+17  ret = std::regex_match("<title>value</title>", reg2);
+18  assert(ret);
+```
+
+- 搜索
+- 分词
+- 替换
+## 九、C++ 17
+
+### 1、string_view
 
 
 

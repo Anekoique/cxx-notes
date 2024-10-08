@@ -6,7 +6,6 @@
 #include<deque>
 #include<algorithm>
 #define pi 3.1415926
-using namespace std;
 
 /*int main()
 {
@@ -787,32 +786,28 @@ using namespace std;
 // 	cout << number;
 // 	return number;
 // }
+//
+#include <iostream>
 
-class base
+void check(int a, int b)
 {
-	int * ptr1;
-public:
-	base() {ptr1 = new int(2);}
-	~base() { cout << "base delete "; delete ptr1;}
-};
-
-class derived : public base
-{
-	int * ptr2;
-public:
-	derived() : base()
-	{
-		ptr2 = new int (3);
-	}
-	~derived()
-	{
-		cout << "derived delete";
-		delete ptr2;
-	}
-};
+    if (a == -b) throw "error";
+}
 
 int main()
 {
-	derived Cla;
-	return 0;
+    int a = 1, b = -1;
+    try {
+        check(a, b);
+        try {
+            check(a, b);
+        }
+        catch(std::string str) {
+            std::cout << str;
+
+        }
+    }
+    catch(std::string str) {
+        std::cout << str;
+    }
 }

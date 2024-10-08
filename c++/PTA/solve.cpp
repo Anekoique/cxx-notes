@@ -1,26 +1,70 @@
-#include<cstdio>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
-class schedule {
-	int year, month, day, hour, minute, second;
-public:
-	schedule(int y, int m, int d, int h, int min, int s) : year(y), month(m), day(d), minute(min), s(second){};
+using namespace std;
+
+void input(vector<pair<int, int>>& vec)
+{
+    int num1, num2;
+    string str;
+    while (cin >> str)
+    {
+        size_t pos = str.find(',');
+        num1 = stoi(str.substr(0, pos));
+        num2 = stoi(str.substr(pos + 1));
+        if (num1 == 0 && num2 == 0) break;
+        vec.push_back(make_pair(num1, num2));
+    }
 }
 
-int main() {
-	int num = 0;
-	int par[6] = {0};
-	int maxpar[6] = {0}, flag = 0;
-	while (scanf("%d %d/%d/%d %d:%d:%d", &num, &par[0], &par[1], &par[2], &par[3], &par[4], &par[5]) != EOF) {
-		for (int i = 0; i < 6; i++) {
-			if (par[i] < maxpar[i]) {
-				for (int j = 0; j < 6; j++) {
-					flag = num;
-					maxpar[j] = par[j]
-				}
-				break;
-			}
-			
-		}
-	}
-	printf("The urgent schedule is No.%d: %d/%d/%d %d:%d:%d", flag, par[0], par[1], par[2], par[3], par[4], par[5]);
+void output(vector<pair<int, int>>& vec)
+{
+    for (auto elem : vec)
+    {
+        if (elem.first == 0) continue;
+        cout << elem.first << ',' << elem.second << ' ';
+    }
+}
+
+bool compare(pair<int, int> a, pair<int, int> b)
+{
+    return a.second < b.second;
+}
+
+int main()
+{
+    vector<pair<int, int>> a, b, c;
+    input(a);
+    input(b);
+    sort(a.begin(), a.end(), compare);
+    sort(b.begin(), b.end(), compare);
+
+    int ptr1 = 0, ptr2 = 0;
+    while (ptr1 < a.size() && ptr2 < b.size())
+    {
+        if (a[ptr1].second < b[ptr2].second) {
+            c.push_back(a[ptr1]);
+            ptr1++;
+        }
+        else if (a[ptr1].second > b[ptr2].second) {
+            c.push_back(b[ptr2]);
+            ptr2++;
+        }
+        else {
+            c.push_back(make_pair(a[ptr1].first + b[ptr2].first, a[ptr1].second));
+            ptr1++;
+            ptr2++;
+        }
+    }
+    while (ptr1 < a.size()) {
+        c.push_back(a[ptr1]);
+        ptr1++;
+    }
+    while (ptr2 < b.size()) {
+        c.push_back(b[ptr2]);
+        ptr2++;
+    }
+
+    output(c);
 }
